@@ -1271,8 +1271,8 @@ select {
 .bg-\[url\(\'\.\.\/images\/bg_share\.jpg\'\)\] {
   background-image: url('../images/bg_share.jpg');
 }
-.bg-\[url\(\'\/assets\/images\/logo2\.svg\'\)\] {
-  background-image: url('/assets/images/logo2.svg');
+.bg-\[url\(\'\.\.\/images\/logo2\.svg\'\)\] {
+  background-image: url('../images/logo2.svg');
 }
 .from-secondary {
   --tw-gradient-from: #09ACF5;
@@ -1824,8 +1824,8 @@ select {
     background-image: url('../images/bg_home.jpg');
   }
 
-  .sm\:bg-\[url\(\'\/assets\/images\/logo\.svg\'\)\] {
-    background-image: url('/assets/images/logo.svg');
+  .sm\:bg-\[url\(\'\.\.\/images\/logo\.svg\'\)\] {
+    background-image: url('../images/logo.svg');
   }
 
   .sm\:p-8 {
