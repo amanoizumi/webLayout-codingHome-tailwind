@@ -1,3 +1,5 @@
+"use strict";
+
 $(function () {
   // 導覽列和選單切換
   function menuToggle() {
@@ -7,90 +9,87 @@ $(function () {
       $("#dropDownMenu").addClass("hidden");
     }
   }
-  $("#dropdownBtn").on("click", menuToggle);
 
-  // grab-animation
-  const ele = document.querySelector(".js-wall");
-  let pos = {
+  $("#dropdownBtn").on("click", menuToggle); // grab-animation
+
+  var ele = document.querySelector(".js-wall");
+  var pos = {
     top: 0,
     left: 0,
     x: 0,
-    y: 0,
+    y: 0
   };
 
-  const mouseDownHandler = function (e) {
+  var mouseDownHandler = function mouseDownHandler(e) {
     if (ele === null) return;
     ele.style.userSelect = "none";
-
     pos = {
       left: ele.scrollLeft,
       top: ele.scrollTop,
       // Get the current mouse position
       x: e.clientX,
-      y: e.clientY,
+      y: e.clientY
     };
-
     document.addEventListener("mousemove", mouseMoveHandler);
     document.addEventListener("mouseup", mouseUpHandler);
   };
-  const mouseMoveHandler = function (e) {
-    if (ele === null) return;
-    // How far the mouse has been moved
-    const dx = e.clientX - pos.x;
-    const dy = e.clientY - pos.y;
 
-    // Scroll the element
+  var mouseMoveHandler = function mouseMoveHandler(e) {
+    if (ele === null) return; // How far the mouse has been moved
+
+    var dx = e.clientX - pos.x;
+    var dy = e.clientY - pos.y; // Scroll the element
+
     ele.scrollTop = pos.top - dy;
     ele.scrollLeft = pos.left - dx;
   };
-  const mouseUpHandler = function () {
+
+  var mouseUpHandler = function mouseUpHandler() {
     if (ele === null) return;
     ele.style.removeProperty("user-select");
-
     document.removeEventListener("mousemove", mouseMoveHandler);
     document.removeEventListener("mouseup", mouseUpHandler);
-  };
-  // Attach the handler
+  }; // Attach the handler
+
+
   if (ele !== null) {
     ele.addEventListener("mousedown", mouseDownHandler);
   }
 
-  const swiper = new Swiper(".swiper", {
+  var swiper = new Swiper(".swiper", {
     effect: "fade",
     fadeEffect: {
-      crossFade: true,
+      crossFade: true
     },
-
     pagination: {
-      el: ".swiper-pagination",
+      el: ".swiper-pagination"
     },
-
     navigation: {
       nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
+      prevEl: ".swiper-button-prev"
+    }
+  }); // 打開登入 modal
 
-  // 打開登入 modal
   function openModal() {
     if ($(".js-modal").hasClass("hidden")) {
       $(".js-modal").removeClass("hidden");
     }
   }
-  $(".js-openModal").on("click", openModal);
 
-  // 關閉登入 modal
+  $(".js-openModal").on("click", openModal); // 關閉登入 modal
+
   function closeModal() {
     if (!$(".js-modal").hasClass("hidden")) {
       $(".js-modal").addClass("hidden");
     }
   }
-  $(".js-closeModal").on("click", closeModal);
 
-  // 日期
-  const date = document.querySelector("#date");
-  const datepicker = new Datepicker(date, {
+  $(".js-closeModal").on("click", closeModal); // 日期
+
+  var date = document.querySelector("#date");
+  var datepicker = new Datepicker(date, {
     language: "zh-TW",
-    orientation: "bottom",
+    orientation: "bottom"
   });
 });
+//# sourceMappingURL=all.js.map
